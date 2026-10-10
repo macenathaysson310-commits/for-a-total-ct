@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Força Total CT: musculação, funcional, muay thai e alongamento com acompanhamento profissional.">
+<title>Força Total CT | Centro de Treinamento</title>
+<style>
+:root{
+  --bg:#0b0d10; --bg2:#12151a; --card:#171b21; --linha:#262c35;
+  --texto:#e8eaed; --suave:#9aa3af; --destaque:#f59e0b; --destaque2:#d97706;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--texto);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:0 20px}
+section{padding:80px 0}
+.alt{background:var(--bg2)}
+.tag{color:var(--destaque);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(26px,4vw,38px);margin:8px 0 14px;line-height:1.2}
+.sub{color:var(--suave);max-width:620px;margin-bottom:40px}
+.btn{display:inline-block;background:var(--destaque);color:#111;font-weight:700;padding:14px 28px;border-radius:6px;border:none;font-size:16px;cursor:pointer;transition:.2s}
+.btn:hover{background:var(--destaque2);transform:translateY(-2px)}
+.btn.outline{background:transparent;color:var(--texto);border:1px solid var(--linha)}
+.btn.outline:hover{border-color:var(--destaque);color:var(--destaque)}
+
+/* Header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,13,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:800;font-size:20px;letter-spacing:1px}
+.logo span{color:var(--destaque)}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav a{color:var(--suave);font-size:15px;transition:.2s}
+nav a:hover{color:var(--texto)}
+.menu-btn{display:none;background:none;border:none;color:var(--texto);font-size:28px;cursor:pointer}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:64px;
+  background:linear-gradient(rgba(11,13,16,.75),rgba(11,13,16,.95)),
+  radial-gradient(circle at 80% 20%,#3a2706 0%,#0b0d10 60%)}
+.hero h1{font-size:clamp(36px,7vw,68px);line-height:1.05;margin:12px 0 20px;max-width:800px}
+.hero h1 em{font-style:normal;color:var(--destaque)}
+.hero p{color:var(--suave);font-size:19px;max-width:560px;margin-bottom:32px}
+.hero .acoes{display:flex;gap:14px;flex-wrap:wrap}
+
+/* Números */
+.numeros{padding:0;margin-top:-1px}
+.numeros .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1px solid var(--linha);border-radius:10px;background:var(--card);margin-top:-50px;position:relative}
+.num{padding:28px 20px;text-align:center;border-right:1px solid var(--linha)}
+.num:last-child{border-right:none}
+.num strong{display:block;font-size:34px;color:var(--destaque)}
+.num span{color:var(--suave);font-size:14px}
+
+/* Cards */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:10px;padding:28px;transition:.25s}
+.card:hover{border-color:var(--destaque);transform:translateY(-4px)}
+.card .n{color:var(--destaque);font-weight:800;font-size:14px;letter-spacing:2px}
+.card h3{margin:10px 0 8px;font-size:20px}
+.card p{color:var(--suave);font-size:15px}
+
+/* Horários */
+.abas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.aba{background:var(--card);border:1px solid var(--linha);color:var(--suave);padding:10px 20px;border-radius:6px;cursor:pointer;font-size:15px;font-weight:600}
+.aba.ativa{background:var(--destaque);color:#111;border-color:var(--destaque)}
+.lista-aulas{display:grid;gap:10px}
+.aula{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--linha);border-left:4px solid var(--destaque);border-radius:8px;padding:18px 22px;gap:12px;flex-wrap:wrap}
+.aula b{font-size:17px}
+.aula small{color:var(--suave);display:block}
+.aula .hora{font-weight:700;color:var(--destaque)}
+.func{color:var(--suave);margin-top:20px;font-size:15px}
+
+/* Planos */
+.planos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:stretch}
+.plano{background:var(--card);border:1px solid var(--linha);border-radius:12px;padding:32px;display:flex;flex-direction:column;position:relative}
+.plano.top{border:2px solid var(--destaque)}
+.plano .selo{position:absolute;top:-13px;left:24px;background:var(--destaque);color:#111;font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px}
+.plano h3{font-size:20px}
+.preco{font-size:42px;font-weight:800;margin:14px 0 4px}
+.preco small{font-size:16px;color:var(--suave);font-weight:400}
+.plano ul{list-style:none;margin:18px 0 26px;flex:1}
+.plano li{padding:8px 0;border-bottom:1px solid var(--linha);color:var(--suave);font-size:15px}
+.plano li::before{content:"✓ ";color:var(--destaque);font-weight:700}
+
+/* Equipe */
+.pessoa{text-align:center}
+.avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--destaque),#7c4a03);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#111}
+.pessoa .cargo{color:var(--destaque);font-size:14px;font-weight:600}
+
+/* Depoimentos */
+.dep p{font-style:italic;color:var(--texto);margin-bottom:14px}
+.dep span{color:var(--suave);font-size:14px}
+
+/* FAQ */
+.faq{max-width:760px}
+.faq details{background:var(--card);border:1px solid var(--linha);border-radius:8px;margin-bottom:10px;padding:18px 22px}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+.faq summary::after{content:"+";color:var(--destaque);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--suave);margin-top:12px;font-size:15px}
+
+/* Contato */
+.contato{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.info p{margin-bottom:14px;color:var(--suave)}
+.info b{color:var(--texto);display:block}
+form{background:var(--card);border:1px solid var(--linha);border-radius:12px;padding:28px}
+label{font-size:14px;color:var(--suave);display:block;margin-bottom:4px}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--linha);color:var(--texto);padding:12px;border-radius:6px;font-size:15px;margin-bottom:16px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--destaque)}
+#retorno{margin-top:14px;color:var(--destaque);font-weight:600}
+
+footer{border-top:1px solid var(--linha);padding:30px 0;text-align:center;color:var(--suave);font-size:14px}
+
+/* Animação de entrada */
+.rev{opacity:0;transform:translateY(24px);transition:.7s}
+.rev.vis{opacity:1;transform:none}
+
+@media(max-width:800px){
+  .menu-btn{display:block}
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:20px;gap:18px;border-bottom:1px solid var(--linha)}
+  nav ul.aberto{display:flex}
+  .contato{grid-template-columns:1fr}
+  .num{border-right:none;border-bottom:1px solid var(--linha)}
+  section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="logo">FORÇA<span>TOTAL</span> CT</a>
+    <nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      <ul id="menu">
+        <li><a href="#modalidades">Modalidades</a></li>
+        <li><a href="#horarios">Horários</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#contato" class="btn" style="padding:9px 18px;font-size:14px;color:#111">Aula grátis</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="inicio">
+  <div class="container">
+    <span class="tag">Centro de Treinamento</span>
+    <h1>Resultado se constrói com <em>método</em> e disciplina.</h1>
+    <p>Musculação, funcional, muay thai e alongamento com professores formados e acompanhamento individual.</p>
+    <div class="acoes">
+      <a href="#contato" class="btn">Agendar aula experimental grátis</a>
+      <a href="#planos" class="btn outline">Ver planos</a>
+    </div>
+  </div>
+</div>
+
+<div class="numeros">
+  <div class="container">
+    <div class="grid">
+      <div class="num"><strong data-alvo="350" data-suf="+">0</strong><span>Alunos ativos</span></div>
+      <div class="num"><strong data-alvo="4">0</strong><span>Modalidades</span></div>
+      <div class="num"><strong data-alvo="6">0</strong><span>Dias por semana</span></div>
+      <div class="num"><strong data-alvo="8" data-suf=" anos">0</strong><span>De experiência</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="modalidades">
+  <div class="container">
+    <span class="tag">Modalidades</span>
+    <h2>Treino para cada objetivo</h2>
+    <p class="sub">Do iniciante ao avançado, cada modalidade tem turmas organizadas por nível.</p>
+    <div class="grid3">
+      <div class="card rev"><span class="n">01</span><h3>Musculação</h3><p>Equipamentos modernos, ficha individualizada e reavaliações periódicas.</p></div>
+      <div class="card rev"><span class="n">02</span><h3>Funcional</h3><p>Treinos em circuito para condicionamento, força e queima calórica.</p></div>
+      <div class="card rev"><span class="n">03</span><h3>Muay Thai</h3><p>Técnica, resistência e disciplina, com turmas para todos os níveis.</p></div>
+      <div class="card rev"><span class="n">04</span><h3>Alongamento</h3><p>Mobilidade, postura e recuperação muscular para treinar por mais tempo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="horarios" class="alt">
+  <div class="container">
+    <span class="tag">Horários</span>
+    <h2>Grade de aulas</h2>
+    <p class="sub">Escolha o dia e veja o que está disponível.</p>
+    <div class="abas" id="abas"></div>
+    <div class="lista-aulas" id="listaAulas"></div>
+    <p class="func">Funcionamento: segunda a sexta, 06h às 22h | sábado, 08h às 12h.</p>
+  </div>
+</section>
+
+<section id="planos">
+  <div class="container">
+    <span class="tag">Planos</span>
+    <h2>Escolha o seu plano</h2>
+    <p class="sub">Sem taxa de matrícula. Quanto maior o compromisso, menor a mensalidade.</p>
+    <div class="planos">
+      <div class="plano rev">
+        <h3>Mensal</h3>
+        <div class="preco">R$ 120<small>/mês</small></div>
+        <ul><li>Acesso livre à musculação</li><li>Avaliação física inicial</li><li>Ficha de treino</li></ul>
+        <a href="#contato" class="btn outline" onclick="escolher('Mensal')">Escolher</a>
+      </div>
+      <div class="plano top rev">
+        <span class="selo">MAIS ESCOLHIDO</span>
+        <h3>Trimestral</h3>
+        <div class="preco">R$ 99<small>/mês</small></div>
+        <ul><li>Musculação + 2 modalidades</li><li>Avaliação física inicial</li><li>Reavaliação a cada 3 meses</li></ul>
+        <a href="#contato" class="btn" onclick="escolher('Trimestral')">Escolher</a>
+      </div>
+      <div class="plano rev">
+        <h3>Anual</h3>
+        <div class="preco">R$ 79<small>/mês</small></div>
+        <ul><li>Todas as modalidades liberadas</li><li>Avaliações periódicas</li><li>Melhor custo-benefício</li></ul>
+        <a href="#contato" class="btn outline" onclick="escolher('Anual')">Escolher</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipe" class="alt">
+  <div class="container">
+    <span class="tag">Equipe</span>
+    <h2>Quem treina você</h2>
+    <p class="sub">Profissionais formados, com atualização constante.</p>
+    <div class="grid3">
+      <div class="card pessoa rev"><div class="avatar">RM</div><h3>Rafael Moura</h3><div class="cargo">Coordenador | Musculação</div></div>
+      <div class="card pessoa rev"><div class="avatar">CL</div><h3>Camila Lopes</h3><div class="cargo">Funcional e Alongamento</div></div>
+      <div class="card pessoa rev"><div class="avatar">DS</div><h3>Diego Santana</h3><div class="cargo">Mestre de Muay Thai</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="tag">Depoimentos</span>
+    <h2>O que dizem os alunos</h2>
+    <p class="sub">&nbsp;</p>
+    <div class="grid3">
+      <div class="card dep rev"><p>"Em 4 meses ganhei força e disposição. O acompanhamento faz toda a diferença."</p><span>Mariana, aluna do plano Trimestral</span></div>
+      <div class="card dep rev"><p>"Ambiente organizado e professores atenciosos. Nunca me senti perdido."</p><span>Lucas, aluno do plano Anual</span></div>
+      <div class="card dep rev"><p>"As aulas de muay thai mudaram minha rotina e meu condicionamento."</p><span>André, aluno do plano Mensal</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="container">
+    <span class="tag">Dúvidas</span>
+    <h2>Perguntas frequentes</h2>
+    <p class="sub">&nbsp;</p>
+    <div class="faq">
+      <details><summary>Preciso ter experiência para começar?</summary><p>Não. Fazemos uma avaliação inicial e montamos o treino de acordo com o seu nível.</p></details>
+      <details><summary>A aula experimental é realmente grátis?</summary><p>Sim, sem compromisso. Basta preencher o formulário e escolher a modalidade.</p></details>
+      <details><summary>Posso trocar de plano depois?</summary><p>Pode. Ao migrar para um plano maior, você paga apenas a diferença.</p></details>
+      <details><summary>O que devo levar na primeira aula?</summary><p>Roupa confortável, tênis, toalha e garrafa de água.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container">
+    <span class="tag">Contato</span>
+    <h2>Agende sua aula experimental</h2>
+    <p class="sub">Preencha o formulário e falaremos com você pelo WhatsApp.</p>
+    <div class="contato">
+      <div class="info">
+        <p><b>Endereço</b>Rua das Palmeiras, 123 - Centro</p>
+        <p><b>Telefone / WhatsApp</b>(00) 91234-5678</p>
+        <p><b>E-mail</b>contato@forcatotalct.com</p>
+        <p><b>Funcionamento</b>Seg a Sex: 06h às 22h<br>Sábado: 08h às 12h</p>
+      </div>
+      <form id="form">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required placeholder="Seu nome">
+        <label for="tel">Telefone</label>
+        <input type="tel" id="tel" required placeholder="(00) 00000-0000">
+        <label for="plano">Plano de interesse</label>
+        <select id="plano"><option>Mensal</option><option>Trimestral</option><option>Anual</option></select>
+        <label for="obj">Seu objetivo</label>
+        <textarea id="obj" rows="3" placeholder="Ex.: ganhar massa, emagrecer, aprender muay thai"></textarea>
+        <button type="submit" class="btn" style="width:100%">Enviar pelo WhatsApp</button>
+        <p id="retorno"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><b>FORÇATOTAL CT</b> | Rua das Palmeiras, 123 - Centro</p>
+    <p>© 2026 Força Total CT. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+// Menu mobile
+var menu = document.getElementById("menu");
+document.getElementById("menuBtn").onclick = function(){ menu.classList.toggle("aberto"); };
+menu.querySelectorAll("a").forEach(function(a){ a.onclick = function(){ menu.classList.remove("aberto"); }; });
+
+// Grade de horários por dia
+var semana = {
+  "Seg": [["Musculação","Livre","06h às 22h"],["Funcional","Turma manhã","07h"],["Funcional","Turma noite","19h"]],
+  "Ter": [["Musculação","Livre","06h às 22h"],["Muay Thai","Todos os níveis","18h30"]],
+  "Qua": [["Musculação","Livre","06h às 22h"],["Funcional","Turma manhã","07h"],["Funcional","Turma noite","19h"]],
+  "Qui": [["Musculação","Livre","06h às 22h"],["Muay Thai","Todos os níveis","18h30"]],
+  "Sex": [["Musculação","Livre","06h às 22h"],["Funcional","Turma manhã","07h"],["Funcional","Turma noite","19h"]],
+  "Sáb": [["Musculação","Livre","08h às 12h"],["Funcional","Turma especial","08h"],["Alongamento","Todos os níveis","09h"]]
+};
+var abas = document.getElementById("abas");
+var lista = document.getElementById("listaAulas");
+
+function mostrarDia(dia){
+  abas.querySelectorAll(".aba").forEach(function(b){
+    b.classList.toggle("ativa", b.textContent === dia);
+  });
+  lista.innerHTML = "";
+  semana[dia].forEach(function(a){
+    lista.innerHTML += '<div class="aula"><div><b>'+a[0]+'</b><small>'+a[1]+'</small></div><span class="hora">'+a[2]+'</span></div>';
+  });
+}
+Object.keys(semana).forEach(function(dia){
+  var b = document.createElement("button");
+  b.className = "aba"; b.textContent = dia;
+  b.onclick = function(){ mostrarDia(dia); };
+  abas.appendChild(b);
+});
+var hoje = ["Seg","Seg","Ter","Qua","Qui","Sex","Sáb"][new Date().getDay()];
+mostrarDia(hoje);
+
+// Escolher plano preenche o formulário
+function escolher(p){ document.getElementById("plano").value = p; }
+
+// Formulário -> WhatsApp (troque o número abaixo pelo real, com 55 + DDD)
+document.getElementById("form").onsubmit = function(e){
+  e.preventDefault();
+  var msg = "Olá! Meu nome é " + nome.value + ". Tenho interesse no plano " + plano.value +
+            ". Objetivo: " + (obj.value || "não informado") + ". Meu telefone: " + tel.value;
+  window.open("https://wa.me/5500912345678?text=" + encodeURIComponent(msg), "_blank");
+  document.getElementById("retorno").textContent = "Abrindo o WhatsApp, " + nome.value + "!";
+  e.target.reset();
+};
+
+// Animações ao rolar a página
+var obs = new IntersectionObserver(function(itens){
+  itens.forEach(function(i){
+    if(i.isIntersecting){
+      i.target.classList.add("vis");
+      if(i.target.dataset.alvo){ contar(i.target); }
+      obs.unobserve(i.target);
+    }
+  });
+}, {threshold:.2});
+document.querySelectorAll(".rev, [data-alvo]").forEach(function(el){ obs.observe(el); });
+
+function contar(el){
+  var alvo = +el.dataset.alvo, suf = el.dataset.suf || "", atual = 0;
+  var passo = Math.max(1, Math.ceil(alvo/60));
+  var t = setInterval(function(){
+    atual += passo;
+    if(atual >= alvo){ atual = alvo; clearInterval(t); }
+    el.textContent = atual + suf;
+  }, 25);
+}
+</script>
+</body>
+</html>
+<script>
+/* ===== FERRAMENTAS DE ANIMAÇÃO (adição) ===== */
+(function(){
+  // CSS próprio das animações
+  var css = document.createElement("style");
+  css.textContent =
+    "#barra{position:fixed;top:0;left:0;height:3px;width:0;background:var(--destaque);z-index:100}" +
+    "#topo{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:none;background:var(--destaque);color:#111;font-size:20px;font-weight:800;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:60}" +
+    "#topo.mostra{opacity:1;pointer-events:auto}" +
+    ".cursor{border-right:2px solid var(--destaque);margin-left:2px;animation:pisca .8s infinite}" +
+    "@keyframes pisca{50%{border-color:transparent}}" +
+    ".btn{position:relative;overflow:hidden}" +
+    ".onda{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:onda .6s linear;pointer-events:none}" +
+    "@keyframes onda{to{transform:scale(4);opacity:0}}" +
+    "header{transition:height .3s,background .3s}" +
+    "header.compacto .nav{height:52px}";
+  document.head.appendChild(css);
+
+  // 1) Barra de progresso de rolagem + botão voltar ao topo + header compacto
+  var barra = document.createElement("div"); barra.id = "barra"; document.body.appendChild(barra);
+  var topo = document.createElement("button"); topo.id = "topo"; topo.textContent = "↑";
+  topo.setAttribute("aria-label", "Voltar ao topo");
+  topo.onclick = function(){ window.scrollTo({top:0, behavior:"smooth"}); };
+  document.body.appendChild(topo);
+
+  var hero = document.querySelector(".hero");
+  window.addEventListener("scroll", function(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.width = (window.scrollY / max * 100) + "%";
+    topo.classList.toggle("mostra", window.scrollY > 500);
+    document.querySelector("header").classList.toggle("compacto", window.scrollY > 80);
+    if(hero && window.scrollY < window.innerHeight){          // 2) Parallax no hero
+      hero.style.backgroundPositionY = (window.scrollY * 0.4) + "px";
+    }
+  }, {passive:true});
+
+  // 3) Efeito de digitação no texto do hero
+  var alvoDigita = document.querySelector(".hero .tag");
+  if(alvoDigita){
+    var palavras = ["Centro de Treinamento","Musculação","Funcional","Muay Thai","Alongamento"];
+    var p = 0, c = 0, apagando = false;
+    var texto = document.createElement("span"), cursor = document.createElement("span");
+    cursor.className = "cursor"; alvoDigita.textContent = ""; alvoDigita.append(texto, cursor);
+    (function digitar(){
+      var palavra = palavras[p];
+      texto.textContent = palavra.substring(0, c);
+      if(!apagando && c < palavra.length){ c++; setTimeout(digitar, 90); }
+      else if(!apagando){ apagando = true; setTimeout(digitar, 1500); }
+      else if(c > 0){ c--; setTimeout(digitar, 45); }
+      else { apagando = false; p = (p + 1) % palavras.length; setTimeout(digitar, 300); }
+    })();
+  }
+
+  // 4) Efeito 3D (tilt) nos cards ao passar o mouse
+  document.querySelectorAll(".card, .plano").forEach(function(el){
+    el.addEventListener("mousemove", function(e){
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transition = "transform .1s";
+      el.style.transform = "perspective(700px) rotateX(" + (-y * 8) + "deg) rotateY(" + (x * 8) + "deg) translateY(-4px)";
+    });
+    el.addEventListener("mouseleave", function(){
+      el.style.transition = ""; el.style.transform = "";
+    });
+  });
+
+  // 5) Efeito de onda (ripple) nos botões
+  document.querySelectorAll(".btn").forEach(function(b){
+    b.addEventListener("click", function(e){
+      var r = b.getBoundingClientRect(), tam = Math.max(r.width, r.height);
+      var o = document.createElement("span"); o.className = "onda";
+      o.style.width = o.style.height = tam + "px";
+      o.style.left = (e.clientX - r.left - tam/2) + "px";
+      o.style.top = (e.clientY - r.top - tam/2) + "px";
+      b.appendChild(o); setTimeout(function(){ o.remove(); }, 600);
+    });
+  });
+
+  // 6) Entrada escalonada: cards da mesma seção aparecem um após o outro
+  document.querySelectorAll(".grid3, .planos").forEach(function(grupo){
+    grupo.querySelectorAll(".rev").forEach(function(el, i){
+      el.style.transitionDelay = (i * 120) + "ms";
+    });
+  });
+})();
+</script>
