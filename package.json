@@ -1,5 +1,7 @@
-meu-site/
-├── index.html      (seu site.html renomeado)
-├── package.json
-└── api/
-    └── leads.js
+{
+  "name": "forca-total-ct",
+  "version": "1.0.0",
+  "dependencies": {
+    "@upstash/redis": "^1.34.0"
+  }
+}
