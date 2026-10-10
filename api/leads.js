@@ -1,4 +1,4 @@
-api/leads.js
+
 const { Redis } = require("@upstash/redis");
 
 const redis = new Redis({
